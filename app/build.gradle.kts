@@ -11,8 +11,8 @@ android {
         applicationId = "com.google.android.safetycore"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2000000000
+        versionName = "2000000000"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
