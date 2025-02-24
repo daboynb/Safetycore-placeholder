@@ -6,8 +6,8 @@ Enjoy!
 
 When Google tries to replace the APK with the updated SafetyCore app, it will fail due to a signature mismatch.
 
-Changelog
+Changelog :
 
-        v2: Increased the version number to 2000000000, causing the Play Store update to become unavailable.
+- v2: Increased the version number to 2000000000, causing the Play Store update to become unavailable.
 
-        v3: Removed unnecessary code, reducing the app size from 5.4 MB to 1.5 MB.
+- v3: Removed unnecessary code, reducing the app size from 5.4 MB to 1.5 MB.
