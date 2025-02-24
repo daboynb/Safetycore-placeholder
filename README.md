@@ -12,10 +12,11 @@ Enjoy!
 If Google tries to replace the APK with the updated SafetyCore app, it will fail due to a signature mismatch.
 
 # Screenshots
-![play_store](https://github.com/user-attachments/assets/d553158a-3f33-40ab-a8ed-543aa15ed7a0)
-![app_1](https://github.com/user-attachments/assets/468a7d3e-9385-4285-962a-4f0a4bfbaa5e)
-![app_2](https://github.com/user-attachments/assets/521a8382-2f34-4c31-b2a5-87868da47d7d)
-
+<p>
+  <img src="https://github.com/user-attachments/assets/d553158a-3f33-40ab-a8ed-543aa15ed7a0" width="200" />
+  <img src="https://github.com/user-attachments/assets/468a7d3e-9385-4285-962a-4f0a4bfbaa5e" width="200" />
+  <img src="https://github.com/user-attachments/assets/521a8382-2f34-4c31-b2a5-87868da47d7d" width="200" />
+</p>
 # Changelog :
 
 - v1: Initial release
