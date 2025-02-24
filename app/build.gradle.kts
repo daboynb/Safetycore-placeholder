@@ -6,10 +6,6 @@ plugins {
 android {
     namespace = "com.google.android.safetycore"
     compileSdk = 34
-    
-    lint {
-        disable("HighAppVersionCode")
-    }
 
     defaultConfig {
         applicationId = "com.google.android.safetycore"
