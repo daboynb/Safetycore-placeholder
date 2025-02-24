@@ -8,6 +8,8 @@ When Google tries to replace the APK with the updated SafetyCore app, it will fa
 
 Changelog :
 
+- v1: Initial release
+  
 - v2: Increased the version number to 2000000000, causing the Play Store update to become unavailable.
 
-- v3: Removed unnecessary code, signed the app instead of debug and reduced the size from 5.4 MB to 35,4 kB. (This release is signed, you need to uninstall the previuos version)
+- v3: Removed unnecessary code and reduced the size from 5.4 MB to 35,4 kB. (This release is signed, you need to uninstall the previuos one)
