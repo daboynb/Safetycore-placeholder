@@ -22,5 +22,15 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+   
     - name: Build with Gradle
       run: ./gradlew build -x lintDebug
+
+     - name: Tree
+      run: tree -L 3
+    
+    - name: Upload Armbian Image
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: idk.apk
