@@ -8,12 +8,12 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: set up JDK 17
+    
+    - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
@@ -26,11 +26,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build -x lintDebug
 
-     - name: Tree
+    - name: Tree
       run: tree -L 3
     
-    - name: Upload Armbian Image
-        uses: actions/upload-artifact@v3
-        with:
-          name: app
-          path: idk.apk
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: app
+        path: app/build/outputs/apk/debug/app-debug.apk 
