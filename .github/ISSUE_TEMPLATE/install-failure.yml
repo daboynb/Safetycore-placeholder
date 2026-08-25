@@ -1,0 +1,64 @@
+name: Install failure
+description: The placeholder APK will not install on your device
+title: "[install] "
+labels: ["install-failure"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before filling this in, run the two triage commands from the
+        [Troubleshooting section](https://github.com/daboynb/Safetycore-placeholder#troubleshooting).**
+        They solve nearly every install failure, and this form cannot be answered without their output.
+
+  - type: checkboxes
+    attributes:
+      label: Triage
+      options:
+        - label: I ran `adb uninstall com.google.android.safetycore` **without** `--user 0` and it did not fix it
+          required: true
+        - label: On Samsung, I also removed it from Knox Secure Folder and turned off Auto Blocker
+          required: false
+        - label: I read the Troubleshooting section and my case is not the system-partition one
+          required: true
+
+  - type: input
+    attributes:
+      label: Device and OS
+      description: Model, Android version, vendor skin and build (e.g. Pixel 10, Android 16; Honor 200 Pro, MagicOS 8)
+      placeholder: Motorola Edge 50 Ultra, Android 15, MyUX
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Output of `adb shell pm list packages -u | grep safetycore`
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Output of `adb uninstall com.google.android.safetycore`
+      description: Paste the exact line, e.g. `Success` or `Failure [not installed for 0]`
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Output of the install attempt
+      description: Full command and full error, e.g. `adb install -r -d Safetycore-placeholder.apk`
+      render: shell
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: How did you run the commands?
+      options:
+        - adb from a computer over USB
+        - adb from a computer over wireless debugging
+        - Shizuku + aShell on the device
+        - I tapped the APK, no adb
+    validations:
+      required: true

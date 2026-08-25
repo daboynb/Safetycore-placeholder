@@ -1,0 +1,31 @@
+name: Something else
+description: Bug, question or request that is not an install failure
+labels: ["needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For install failures use the *Install failure* form instead.
+        For requests to placeholder a different app, build it yourself with
+        [apk-placeholder](https://github.com/daboynb/apk-placeholder).
+
+  - type: textarea
+    attributes:
+      label: What is going on?
+      description: Include what you expected and what happened instead. Paste command output as text, not screenshots.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Device and OS
+      placeholder: Pixel 10, Android 16
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: Placeholder version you installed
+      placeholder: v2000000000
+    validations:
+      required: false

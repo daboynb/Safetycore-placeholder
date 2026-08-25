@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Download the APK
+    url: https://github.com/daboynb/Safetycore-placeholder/releases/latest
+    about: The APK lives in Releases, not in the file list on the repo page.
+  - name: "\"App not installed\" / INSTALL_FAILED_UPDATE_INCOMPATIBLE"
+    url: https://github.com/daboynb/Safetycore-placeholder#troubleshooting
+    about: Read this first — it solves nearly every reported install failure, including Samsung Knox and Auto Blocker.
+  - name: VirusTotal flags the APK
+    url: https://github.com/daboynb/Safetycore-placeholder#virustotal-flags-the-apk
+    about: Known false positive. The APK contains no code, only a manifest.
+  - name: Placeholder for another app
+    url: https://github.com/daboynb/apk-placeholder
+    about: Build your own placeholder APK for any package instead of requesting one.
