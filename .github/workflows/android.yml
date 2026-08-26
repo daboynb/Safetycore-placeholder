@@ -1,36 +1,56 @@
 name: Android CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      namespace:
+        description: "Package Name"
+        required: true
+        default: "com.google.android.safetycore"
+      appname:
+        description: "Artifact name"
+        required: true
+        default: "Android Safety Core"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      APP_NAMESPACE: ${{ github.event.inputs.namespace }}
+      APP_ARTIFACT_NAME: ${{ github.event.inputs.appname }}
+
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: gradle
+      - uses: actions/checkout@v4
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-   
-    - name: Build with Gradle
-      run: ./gradlew build -x lintDebug
+      - name: Set namespace input
+        run: |
+          echo "APP_NAMESPACE=${APP_NAMESPACE:-com.google.android.safetycore}" >> $GITHUB_ENV
+          echo "APP_ARTIFACT_NAME=${APP_ARTIFACT_NAME:-Android Safety Core}" >> $GITHUB_ENV
 
-    - name: Tree
-      run: tree -L 3
-    
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: Placeholder
-        path: app/build/outputs/apk/debug/app-debug.apk 
+      - name: Update namespace/applicationId
+        run: |
+          sed -i "s/namespace = \".*\"/namespace = \"${APP_NAMESPACE}\"/" app/build.gradle.kts
+          sed -i "s/applicationId = \".*\"/applicationId = \"${APP_NAMESPACE}\"/" app/build.gradle.kts
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build -x lintDebug
+
+      - name: Tree
+        run: tree -L 3
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.APP_ARTIFACT_NAME }}
+          path: app/build/outputs/apk/debug/app-debug.apk
