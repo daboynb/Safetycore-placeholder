@@ -29,7 +29,7 @@ package with one signed by a different key ([AOSP](https://cs.android.com/androi
 ## Step 1 — run the triage
 
 ```
-adb shell pm list packages -u | grep safetycore
+adb shell "pm list packages -u | grep safetycore"
 adb uninstall com.google.android.safetycore
 ```
 
@@ -42,7 +42,7 @@ people get stuck.
 **`Success`** → SafetyCore was an ordinary updatable app and is now really gone. Install the placeholder:
 
 ```
-adb install -r -d Safetycore-placeholder.apk
+adb install -r Safetycore-placeholder.apk
 ```
 
 **`Failure [not installed for 0]`, while step 1 still lists the package** → SafetyCore is preinstalled

@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-24.04
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Make
+        run: |
+          export PATH=$PATH:$ANDROID_HOME/build-tools/37.0.0
+          make
+
+      - name: Upload
+        uses: actions/upload-artifact@v7
+        with:
+          path: "stub.apk"
+          archive: false
