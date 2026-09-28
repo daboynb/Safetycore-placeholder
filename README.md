@@ -29,7 +29,7 @@ package with one signed by a different key ([AOSP](https://cs.android.com/androi
 ## Step 1 — run the triage
 
 ```
-adb shell pm list packages -u | grep safetycore
+adb shell "pm list packages -u | grep safetycore"
 adb uninstall com.google.android.safetycore
 ```
 
